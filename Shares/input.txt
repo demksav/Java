@@ -1,1 +1,132 @@
+o,buy,100
+o,sell,200
 
+u,a,9,ask
+u,b,10,bid
+u,15,c,ask
+u,5,d,bid
+
+u,11,5,ask
+u,12,6,ask
+u,13,7,ask
+u,10,0,ask
+u,11,8,ask
+
+u,7,1,bid
+u,8,3,bid
+u,6,2,bid
+u,9,0,bid
+u,8,4,bid
+
+q,best_ask
+//best_ask => min ask > 0 == 11,8/12,6/13,7
+q,best_bid
+//best_bid => max bid > 0 == 8,4/7,1/6,2
+
+ 
+u,11,-3,ask
+u,8,-5,bid
+
+q,best_ask
+q,best_bid
+
+u,11,0,ask
+u,8,0,bid
+
+q,best_ask
+//best_ask => min ask > 0 == 12,6/13,7
+q,best_bid
+//best_bid => max bid > 0 == 7,1/6,2
+q,size,11
+//             0
+q,size,8
+//             0
+q,size,0
+q,size,o
+q,size,12
+//             6
+q,size,7
+//             1
+
+o,buy,7
+// remove Ask min 
+q,best_ask
+//                13,6
+q,best_bid
+//                7,1
+q,size,11
+q,size,8
+
+o,sell,2
+//remove Bid max
+
+q,best_ask
+//best_ask => min ask > 0 == 13,6
+q,best_bid
+//best_bid => max bid > 0 == 6,1
+q,size,11
+//            0
+q,size,8
+//            0
+q,size,13
+//            6
+q,size,6
+//            1
+q,size,12
+//---        ---
+q,size,7
+//---        ---
+
+ 
+u,13,0,ask
+u,6,0,bid
+
+q,best_ask
+//           ---
+q,best_bid
+//           ---
+q,size,13
+//           ---
+q,size,6
+//           ---
+
+u,13,8,ask
+u,12,6,ask
+u,11,9,ask
+u,10,0,ask
+u,11,7,ask
+u,6,3,bid
+u,8,3,bid
+u,7,7,bid
+u,9,0,bid
+u,8,5,bid
+q,best_ask
+//best_ask => min ask > 0 == 11,7/12,6/13,8
+q,best_bid
+//best_bid => max bid > 0 == 8,5/7,7/6,3
+
+o,buy,8
+// remove Ask min 
+q,best_ask
+//                12,5
+q,best_bid
+//                 8,5
+o,sell,6
+//remove Bid max
+q,best_ask
+//                 12,5
+q,best_bid
+//                  7,6
+o,buy,20
+// remove Ask min 
+q,best_ask
+//                  ---(-14Ask)
+q,best_bid
+//                  7,6
+o,sell,15
+//remove Bid max
+q,best_ask
+//                  ----(-9Bid)
+
+
+q,best_bid
