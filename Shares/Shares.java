@@ -44,8 +44,7 @@ public class Shares {
     }
 
     private void remove(String sizeString, boolean useMax, TreeMap<Integer, Integer> map) {
-        int sizeToConsume;
-        /*
+        int sizeToConsume;        
         int checkBox = 0;
         String marketOrder;
         if (useMax) {
@@ -53,7 +52,7 @@ public class Shares {
         } else {
         	marketOrder ="bought"; 
         }
-        */
+        
         try {
             sizeToConsume = Integer.parseInt(sizeString);
         } catch (NumberFormatException e) {
@@ -62,18 +61,16 @@ public class Shares {
 
         while (sizeToConsume > 0) {
             Map.Entry<Integer, Integer> best = findBestEntry(map, useMax);
-            if (best == null) {
-            	/*
+            if (best == null) {            	
             	if (checkBox == 0) {
             		System.out.println("not executed: " + sizeToConsume + " share(s) not "+ marketOrder);	
             	}
             	else if (checkBox == 1) {
             		System.out.println("partly executed, " + sizeToConsume + " share(s) still not " + marketOrder);	
-            	} 
-            	*/           	
+            	}             	          	
                 break;
             }
-            //checkBox = 1;
+            checkBox = 1;
             int price = best.getKey();
             int size = best.getValue();
             if (size >= sizeToConsume) {
@@ -81,8 +78,7 @@ public class Shares {
                 map.put(price, result); 
                 sizeToConsume = 0;
             } else {
-                sizeToConsume -= size;
-                //map.put(price, 0);
+                sizeToConsume -= size; 
                 map.remove(price); 
             }
         }
@@ -153,7 +149,7 @@ public class Shares {
                 }
             }
         } catch (NumberFormatException e) {
-            //System.out.println("update error: " + parts[1] + "," + parts[2] + "," + parts[3]);
+            System.out.println("update error: " + parts[1] + "," + parts[2] + "," + parts[3]);
         }
     }
 
