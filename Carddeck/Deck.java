@@ -135,7 +135,6 @@ int compare(Card card1, Card card2) {
     }
 
     // Ranks are also equal, return 0.
-
     return 0;
 }
 
@@ -149,7 +148,7 @@ int compare(Card card1, Card card2) {
             Card card = deck.drawOne();
             System.out.println("4- " + card.getSuit().getName() + " " + card.getRank().getName());
             //System.out.println("Compare " + deck.cards[2] + " and " + deck.cards[3]);
-	        //System.out.println(deck.compare(deck.cards[2], deck.cards[3]));
- 	    }
+	    //System.out.println(deck.compare(deck.cards[2], deck.cards[3]));
+ 	}
 	}
 }
